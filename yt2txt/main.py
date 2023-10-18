@@ -1,6 +1,6 @@
 import os
 from pytube import YouTube
-from mp32txt.main import transcribe_audio
+from ..mp32txt.main import transcribe_audio
 
 def download_youtube_audio(url, destination="yt2txt/"):
     try:
@@ -21,7 +21,7 @@ def download_youtube_audio(url, destination="yt2txt/"):
         return None
 
 if __name__ == "__main__":
-    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=NrXdauEv9HY')
+    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=v4t0E3S1N1k')
     
     if audio_file:
         transcribe_audio(audio_file, "text.txt")
