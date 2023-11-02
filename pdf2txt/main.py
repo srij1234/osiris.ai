@@ -1,6 +1,6 @@
 from PyPDF2 import PdfReader
 
-reader = PdfReader("test.pdf")
+reader = PdfReader("pdf2txt/test.pdf")
 nop = len(reader.pages)
 
 text=""
@@ -9,5 +9,5 @@ for i in range(nop):
     text += page.extract_text()
     
 
-with open("text.txt","w",encoding='utf-8') as f:
+with open("pdf2txt/test.txt","w",encoding='utf-8') as f:
     f.write(text)

@@ -1,6 +1,9 @@
 import os
 from pytube import YouTube
-from ..mp32txt.main import transcribe_audio
+# from ..mp32txt import transcribe_audio
+import whisper
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 def download_youtube_audio(url, destination="yt2txt/"):
     try:
@@ -19,9 +22,19 @@ def download_youtube_audio(url, destination="yt2txt/"):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return None
-
+def transcribe_audio(input_file, output_file):
+    model = whisper.load_model("base")
+    text = model.transcribe(input_file)['text']
+    
+    with open(output_file, "w", encoding='utf-8') as f:
+        f.write(text)
+def transcribe():
+    input_file = "yt2txt/test.mp3"
+    output_file = "yt2txt/text.txt"
+    
+    transcribe_audio(input_file, output_file)
 if __name__ == "__main__":
     audio_file = download_youtube_audio('https://www.youtube.com/watch?v=v4t0E3S1N1k')
     
     if audio_file:
-        transcribe_audio(audio_file, "text.txt")
+        transcribe()
