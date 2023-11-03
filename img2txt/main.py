@@ -16,7 +16,7 @@ file_input = driver.find_element(By.CLASS_NAME, "custom-file-container__custom-f
 
 
 # Provide the correct file path, and make sure to escape backslashes
-file_path = r'C:\Users\srija\OneDrive\Desktop\osiris\img2txt\test.jpg'  # Replace with the actual file path
+file_path = r'C:\Users\srija\Desktop\osiris.ai\img2txt\test.jpg'
 file_input.send_keys(file_path)
 time.sleep(3)
 element = driver.find_element(By.CSS_SELECTOR,".custom-file-container__image-multi-preview__single-image-process__icon")

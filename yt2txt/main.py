@@ -3,6 +3,7 @@ from pytube import YouTube
 # from ..mp32txt import transcribe_audio
 import whisper
 import ssl
+import os
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def download_youtube_audio(url, destination="yt2txt/"):
@@ -34,7 +35,9 @@ def transcribe():
     
     transcribe_audio(input_file, output_file)
 if __name__ == "__main__":
-    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=v4t0E3S1N1k')
+    os.remove("yt2txt/test.mp3")
+    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=NJUJJrPnzhU')
     
     if audio_file:
         transcribe()
+        
