@@ -36,7 +36,7 @@ def transcribe():
     transcribe_audio(input_file, output_file)
 if __name__ == "__main__":
     os.remove("yt2txt/test.mp3")
-    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=NJUJJrPnzhU')
+    audio_file = download_youtube_audio('https://www.youtube.com/watch?v=5UcVVBXqj7Y')
     
     if audio_file:
         transcribe()
